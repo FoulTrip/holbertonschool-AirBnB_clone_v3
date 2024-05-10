@@ -31,7 +31,6 @@ class DBStorage:
 
     __engine = None
     __session = None
-    # count = 0
 
     def __init__(self):
         """Instantiate a DBStorage object"""
@@ -47,8 +46,6 @@ class DBStorage:
         )
         if HBNB_ENV == "test":
             Base.metadata.drop_all(self.__engine)
-
-        # DBStorage.count += 1
 
     def all(self, cls=None):
         """query on the current database session"""
@@ -82,7 +79,7 @@ class DBStorage:
         self.__session = Session
 
     def close(self):
-        """call remove() method on the private session attribute"""
+        """Call remove() method on the private session attribute"""
         self.__session.remove()
 
     def get(self, cls, id):
